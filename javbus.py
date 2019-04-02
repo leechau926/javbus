@@ -2,7 +2,7 @@ import re
 import requests
 import shutil
 
-fanhao_list = {"SSNI-338", "SSNI-295", "SSNI-315", "SSNI-179", "SSNI-272", "SSNI-402"}
+fanhao_list = ["SSNI-%03d"%x for x in range(1,438)]
 headers = {'User-agent': 'Mozilla/5.0'}
 
 def get(fanhao):
