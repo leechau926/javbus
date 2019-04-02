@@ -14,11 +14,14 @@ def get(fanhao):
 
 def main():
         for fanhao in fanhao_list:
-                filename = "%s.jpg"%fanhao
-                r = requests.get(get(fanhao), stream=True, headers=headers)
-                with open(filename, 'wb') as f:
-                        r.raw.decode_content = True
-                        shutil.copyfileobj(r.raw, f)
+                try:                
+                        filename = "%s.jpg"%fanhao
+                        r = requests.get(get(fanhao), stream=True, headers=headers)
+                        with open(filename, 'wb') as f:
+                                r.raw.decode_content = True
+                                shutil.copyfileobj(r.raw, f)
+                except IndexError:
+                        continue
 
 if __name__ == '__main__':
         main()
