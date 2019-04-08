@@ -21,8 +21,8 @@ def max_page(response_text):
     return max_page
 
 def main():
-    print('========%s========' % keyword)
     keyword = input("Please input keyword: ")
+    print('========%s========' % keyword)
     maxpage = max_page(requests.get(url+keyword, headers=headers).text)
     print('max page is ', maxpage)
     for num in range(1,maxpage+1):
