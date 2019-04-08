@@ -12,23 +12,22 @@ my_headers = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, lik
 ]
 randdom_header=random.choice(my_headers)
 headers = {'User-agent': randdom_header}
-
 pattern = re.compile('<td class="name">(.*?)</td>.*?<td class="date">(.*?)</td>.*?Detail</a><a\shref="(.*?)"\stitle', re$
 
 def max_page(response_text):
-	page_pattern = re.compile('<a\shref="\d{1,3}">(\d{1,3})</a><a\shref="2"', re.S)
-	pages = re.findall(page_pattern, response_text)
-	max_page = int(pages[0])
-	return max_page
+    page_pattern = re.compile('<a\shref="\d{1,3}">(\d{1,3})</a><a\shref="2"', re.S)
+    pages = re.findall(page_pattern, response_text)
+    max_page = int(pages[0])
+    return max_page
 
 def main():
-	maxpage = max_page(requests.get(url+keyword, headers=headers).text)
-	for num in range(1,maxpage+1):
-		response = requests.get(url+keyword+"/"+str(num), headers=headers)
-		items = re.findall(pattern, response.text)
-		for item in items:
-			with open('output.txt', 'a', encoding='utf-8') as op:
-				op.write("%s,%s,%s\n" % (item[0], item[1], item[2][0:60]))
+    maxpage = max_page(requests.get(url+keyword, headers=headers).text)
+    for num in range(1,maxpage+1):
+        response = requests.get(url+keyword+"/"+str(num), headers=headers)
+        items = re.findall(pattern, response.text)
+        for item in items:
+            with open('output.txt', 'a', encoding='utf-8') as op:
+                op.write("%s,%s,%s\n" % (item[0], item[1], item[2][0:60]))
 
 if __name__ == '__main__':
-	main()
+    main()
