@@ -1,3 +1,4 @@
+# get fanhao.jpg from file ssni.txt
 import re
 import requests
 import shutil
