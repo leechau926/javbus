@@ -29,7 +29,7 @@ def main():
         response = requests.get(url+keyword+"/"+str(num), headers=headers)
         items = re.findall(pattern, response.text)
         for item in items:
-            with open('output.txt', 'a', encoding='utf-8') as op:
+            with open(keyword+'.txt', 'a', encoding='utf-8') as op:
                 op.write("%s,%s,%s\n" % (item[0], item[1], item[2][0:60]))
         print('page %d saved!' % num)
 
