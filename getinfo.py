@@ -12,7 +12,7 @@ my_headers = "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, lik
 ]
 randdom_header=random.choice(my_headers)
 headers = {'User-agent': randdom_header}
-pattern = re.compile('<td class="name">(.*?)</td>.*?<td class="date">(.*?)</td>.*?Detail</a><a\shref="(.*?)"\stitle', re$
+pattern = re.compile('<td class="name">(.*?)</td>.*?<td class="date">(.*?)</td>.*?Detail</a><a\shref="(.*?)"\stitle', re.S)
 
 def max_page(response_text):
     page_pattern = re.compile('<a\shref="\d{1,3}">(\d{1,3})</a><a\shref="2"', re.S)
