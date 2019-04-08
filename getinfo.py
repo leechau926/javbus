@@ -21,13 +21,16 @@ def max_page(response_text):
     return max_page
 
 def main():
+    print('========%s========' % keyword)
     maxpage = max_page(requests.get(url+keyword, headers=headers).text)
+    print('max page is ', maxpage)
     for num in range(1,maxpage+1):
         response = requests.get(url+keyword+"/"+str(num), headers=headers)
         items = re.findall(pattern, response.text)
         for item in items:
             with open('output.txt', 'a', encoding='utf-8') as op:
                 op.write("%s,%s,%s\n" % (item[0], item[1], item[2][0:60]))
+        print('page %d saved!' % num)
 
 if __name__ == '__main__':
     main()
