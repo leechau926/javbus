@@ -27,7 +27,7 @@ def main():
         with open(filename, 'wb') as f:
             r.raw.decode_content = True
             shutil.copyfileobj(r.raw, f)
-        print("%s .jpg saved!" % fanhao)
+        print("%s.jpg saved!" % fanhao)
     except IndexError:
         print("%s does not exist!" % fanhao)
 
