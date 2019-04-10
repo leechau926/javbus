@@ -27,6 +27,7 @@ def main():
     print('max page is ', maxpage)
     for num in range(1,maxpage+1):
         response = requests.get(url+keyword+"/"+str(num), headers=headers)
+        response.encoding='utf-8'
         items = re.findall(pattern, response.text)
         for item in items:
             with open(keyword+'.txt', 'a', encoding='utf-8') as op:
