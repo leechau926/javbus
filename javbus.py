@@ -6,7 +6,7 @@ fanhao_list = ["SSNI-%03d"%x for x in range(1,438)]
 headers = {'User-agent': 'Mozilla/5.0'}
 
 def get(fanhao):
-    url = "https://www.javbus.pw/%s" % fanhao
+    url = "https://www.javbus.com/%s" % fanhao
     response = requests.get(url)
     pattern = re.compile("img\s=\s'(.*?)';", re.S)
     item = re.findall(pattern, response.text)
