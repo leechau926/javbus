@@ -7,7 +7,7 @@ import  cloudscraper
 scraper = cloudscraper.create_scraper()
 scrape_url = 'http://www.javlibrary.com/cn/vl_bestrated.php'
 web_data = scraper.get(scrape_url).content.decode('utf-8')
-soup = BeautifulSoup(file.read(), 'lxml')
+soup = BeautifulSoup(web_data, 'lxml')
 
 t_title = soup.find('title').text
 print(t_title)
