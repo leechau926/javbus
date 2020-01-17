@@ -2,9 +2,11 @@
 from bs4 import BeautifulSoup
 import re
 import time
+import  cloudscraper
 
-file = open('bestrated.html', 'r', encoding='utf-8')
-
+scraper = cloudscraper.create_scraper()
+scrape_url = 'http://www.javlibrary.com/cn/vl_bestrated.php'
+web_data = scraper.get(scrape_url).content.decode('utf-8')
 soup = BeautifulSoup(file.read(), 'lxml')
 
 t_title = soup.find('title').text
