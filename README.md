@@ -12,3 +12,8 @@ get "name" "date" "magnet" from torrentkittv
 
 ## single.py
 download single fanhao.jpg from type a fanhao
+
+## javlibrary
+我学会了怎么爬javlibrary，用cloudscraper
+但是我懒得写了
+
